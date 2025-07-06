@@ -85,7 +85,7 @@ mongoose_1.default
     .catch((err) => console.error(err));
 // ✅ Setup CORS (allow both localhost + deployed frontend)
 const allowedOrigins = [
-    // "http://localhost:3000",
+    "http://localhost:3000",
     "https://contract-wise-et6d.vercel.app",
 ];
 app.use((0, cors_1.default)({
