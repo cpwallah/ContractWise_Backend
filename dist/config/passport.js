@@ -18,8 +18,13 @@ const user_model_1 = __importDefault(require("../models/user.model"));
 passport_1.default.use(new passport_google_oauth20_1.Strategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK_URL ||
-        "http://localhost:8080/auth/google/callback",
+    // callbackURL:
+    //   // process.env.GOOGLE_CALLBACK_URL ||
+    //   `${process.env.GOOGLE_CALLBACK_URL}/auth/google/callback` ||
+    //   "http://localhost:8080/auth/google/callback",
+    callbackURL: process.env.GOOGLE_CALLBACK_URL
+        ? `${process.env.GOOGLE_CALLBACK_URL.replace(/\/$/, "")}/auth/google/callback`
+        : "http://localhost:8080/auth/google/callback",
     scope: ["profile", "email"], // Explicitly request profile and email
 }, (accessToken, refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b, _c, _d;
