@@ -113,9 +113,9 @@ app.use((0, express_session_1.default)({
     saveUninitialized: false,
     store: connect_mongo_1.default.create({ mongoUrl: process.env.MONGODB_URI }),
     cookie: {
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        secure: true, // Always secure (needed for HTTPS on Vercel)
+        sameSite: "none", // Cross-origin frontend (like Vercel) support
+        maxAge: 24 * 60 * 60 * 1000,
     },
 }));
 // ✅ Passport
