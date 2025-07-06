@@ -85,7 +85,7 @@ mongoose_1.default
     .catch((err) => console.error(err));
 // ✅ Setup CORS (allow both localhost + deployed frontend)
 const allowedOrigins = [
-    "http://localhost:3000",
+    // "http://localhost:3000",
     "https://contract-wise-et6d.vercel.app",
 ];
 app.use((0, cors_1.default)({
@@ -106,6 +106,7 @@ app.use((0, morgan_1.default)("dev"));
 app.post("/payments/webhook", express_1.default.raw({ type: "application/json" }), payment_controller_1.handleWebhook);
 // ✅ Standard body parsing
 app.use(express_1.default.json());
+app.set("trust proxy", 1);
 // ✅ Session setup
 app.use((0, express_session_1.default)({
     secret: process.env.SESSION_SECRET,

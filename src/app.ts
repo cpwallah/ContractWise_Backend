@@ -88,7 +88,7 @@ mongoose
 
 // ✅ Setup CORS (allow both localhost + deployed frontend)
 const allowedOrigins = [
-  "http://localhost:3000",
+  // "http://localhost:3000",
   "https://contract-wise-et6d.vercel.app",
 ];
 
@@ -119,6 +119,7 @@ app.post(
 // ✅ Standard body parsing
 app.use(express.json());
 
+app.set("trust proxy", 1);
 // ✅ Session setup
 app.use(
   session({
