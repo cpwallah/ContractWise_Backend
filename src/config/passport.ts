@@ -12,7 +12,10 @@ passport.use(
       //   `${process.env.GOOGLE_CALLBACK_URL}/auth/google/callback` ||
       //   "http://localhost:8080/auth/google/callback",
       callbackURL: process.env.GOOGLE_CALLBACK_URL
-        ? `${process.env.GOOGLE_CALLBACK_URL}/auth/google/callback`
+        ? `${process.env.GOOGLE_CALLBACK_URL.replace(
+            /\/$/,
+            ""
+          )}/auth/google/callback`
         : "http://localhost:8080/auth/google/callback",
       scope: ["profile", "email"], // Explicitly request profile and email
     },
