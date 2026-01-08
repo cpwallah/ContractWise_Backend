@@ -373,7 +373,7 @@ export const analyzeContract = async (
         analysisResult.expirationDate ||
         new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
       language: analysisResult.language || "en",
-      aiModel: analysisResult.aiModel || "gemini-1.5-flash",
+      aiModel: analysisResult.aiModel || "gemini-2.5-flash",
       financialTerms: analysisResult.financialTerms || {
         description: "Not specified",
         details: [],
