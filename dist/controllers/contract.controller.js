@@ -121,7 +121,7 @@ const analyzeContract = (req, res) => __awaiter(void 0, void 0, void 0, function
             expirationDate: analysisResult.expirationDate ||
                 new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
             language: analysisResult.language || "en",
-            aiModel: analysisResult.aiModel || "gemini-1.5-flash",
+            aiModel: analysisResult.aiModel || "gemini-2.5-flash",
             financialTerms: analysisResult.financialTerms || {
                 description: "Not specified",
                 details: [],
