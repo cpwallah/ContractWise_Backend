@@ -48,7 +48,7 @@ export interface ContractAnalysis {
   financialTerms?: { description: string; details: string[] };
 }
 
-const AI_MODEL = "gemini-1.5-flash";
+const AI_MODEL = "gemini-2.5-flash";
 if (!process.env.GEMINI_API_KEY) {
   throw new Error("GEMINI_API_KEY is not defined in environment variables");
 }
