@@ -72,7 +72,7 @@ import passport from "passport";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import "./config/passport";
-import "./config/redis";
+import redis from "./config/redis";
 
 import authRoute from "./routes/auth";
 import contractsRoute from "./routes/contracts";
