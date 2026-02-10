@@ -144,6 +144,10 @@ app.use("/auth", authRoute);
 app.use("/contracts", contractsRoute);
 app.use("/payments", paymentRoute);
 
+app.get("/ping", (req, res) => {
+  res.status(200).send("pong");
+});
+
 // ✅ Start server
 const PORT = 8080;
 app.listen(PORT, () => {
