@@ -72,6 +72,7 @@ import passport from "passport";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import "./config/passport";
+import "./config/redis";
 
 import authRoute from "./routes/auth";
 import contractsRoute from "./routes/contracts";
@@ -147,6 +148,17 @@ app.use("/payments", paymentRoute);
 app.get("/ping", (req, res) => {
   res.status(200).send("pong");
 });
+// Health check / keep-alive for Redis
+app.get("/ping-redis", async (req, res) => {
+  try {
+    await redis.set("ping", Date.now()); // touch Redis so free tier stays awake
+    res.status(200).send("Redis pinged!");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Redis ping failed");
+  }
+});
+
 
 // ✅ Start server
 const PORT = 8080;
